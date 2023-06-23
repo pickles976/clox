@@ -13,15 +13,22 @@ gcc -o clox main.c chunk.c memory.c debug.c vm.c value.c compiler.c scanner.c
 - [x] 16 - Scanning on Demand
     - [x] 16.1
     - [x] 16.2
-- [ ] 17 - 
-- [ ] 18 - 
-- [ ] 19 - 
-- [ ] 20 - 
-- [ ] 21 - 
-- [ ] 22 - 
-- [ ] 23 - 
-- [ ] 24 - 
-- [ ] 25 - 
-- [ ] 26 - 
-- [ ] 27 -
-- [ ] 28 - 
+- [ ] 17 - Compiling Expressions
+    - [x] 17.3
+    - [ ] 17.4
+    - [ ] 17.5
+    - [ ] 17.6
+    - [ ] 17.7
+- [ ] 18 - Types of Values
+- [ ] 19 - Strings
+- [ ] 20 - Hash Tables
+- [ ] 21 - Global Variables
+- [ ] 22 - Local Variables
+- [ ] 23 - Jumping Back and Forth
+- [ ] 24 - Calls and Functions
+- [ ] 25 - Closures
+- [ ] 26 - Garbage Collection
+- [ ] 27 - Classes and Instances
+- [ ] 28 - Methods and Initializers
+- [ ] 29 - Superclasses
+- [ ] 30 - Optimization
