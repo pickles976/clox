@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "debug.h"
+#include "value.h"
 
 static int simpleInstruction(const char* name, int offset) {
     printf("%s\n", name);
@@ -14,11 +15,27 @@ void disassembleChunk(Chunk* chunk, const char* name) {
     }
 }
 
+static int constantInstruction(const char* name, Chunk* chunk, int offset) {
+    uint8_t constant = chunk->code[offset + 1]; // index of value in ValueArray
+    printf("%-16s %4d '", name, constant);
+    printValue(chunk->constants.values[constant]);
+    printf("'\n");
+    return offset + 2; // once for the opcode, once for the index
+}
+
 int disassembleInstruction(Chunk* chunk, int offset) {
     printf("%04d ", offset);
 
+    if (offset > 0 && chunk->lines[offset] == chunk->lines[offset - 1]) {
+        printf("   | "); // if on the same line
+    } else {
+        printf("%4d ", chunk->lines[offset]); // print line
+    }
+
     uint8_t instruction = chunk->code[offset];
     switch (instruction) {
+        case OP_CONSTANT:
+            return constantInstruction("OP_CONSTANT", chunk, offset);
         case OP_RETURN:
             return simpleInstruction("OP_RETURN", offset);
         default:
