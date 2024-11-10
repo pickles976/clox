@@ -12,9 +12,9 @@ typedef enum {
 typedef struct {
     int count;
     int capacity;
-    uint8_t* code;
-    int* lines;
-    ValueArray constants;
+    uint8_t* code; // array of opcodes | index to constant array
+    int* lines; // array of line nums
+    ValueArray constants; // array of constants
 } Chunk;
 
 void initChunk(Chunk* chunk);
