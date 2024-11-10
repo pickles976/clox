@@ -5,8 +5,8 @@ https://www.lua.org/doc/jucs05.pdf
 
 gcc -o clox main.c chunk.c memory.c debug.c vm.c value.c compiler.c scanner.c
 
-- [ ] 14 - Chunks of Bytecode
-- [ ] 15 - A Virtual Machine
+- [x] 14 - Chunks of Bytecode
+- [x] 15 - A Virtual Machine
 - [ ] 16 - Scanning on Demand
 - [ ] 17 - Compiling Expressions
 - [ ] 18 - Types of Values
@@ -22,3 +22,7 @@ gcc -o clox main.c chunk.c memory.c debug.c vm.c value.c compiler.c scanner.c
 - [ ] 28 - Methods and Initializers
 - [ ] 29 - Superclasses
 - [ ] 30 - Optimization
+
+Challenges:
+- implement `reallocate` without `realloc`
+- make stack height dynamic
