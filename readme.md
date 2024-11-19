@@ -1,14 +1,16 @@
 My implementation of the Lox programming language from https://craftinginterpreters.com/
 
-https://craftinginterpreters.com/scanning-on-demand.html
 https://www.lua.org/doc/jucs05.pdf
 
-gcc -o clox main.c chunk.c memory.c debug.c vm.c value.c compiler.c scanner.c
+https://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/
+
+gcc -o clox.exe main.c chunk.c memory.c debug.c value.c vm.c compiler.c scanner.c
 
 - [x] 14 - Chunks of Bytecode
 - [x] 15 - A Virtual Machine
-- [ ] 16 - Scanning on Demand
+- [x] 16 - Scanning on Demand
 - [ ] 17 - Compiling Expressions
+https://craftinginterpreters.com/compiling-expressions.html#parsing-tokens
 - [ ] 18 - Types of Values
 - [ ] 19 - Strings
 - [ ] 20 - Hash Tables
