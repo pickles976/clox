@@ -60,7 +60,7 @@ int main(int argc, const char* argv[]) {
 
     if (argc == 1) {
         repl();
-    } else (argc == 2) {
+    } else if (argc == 2) {
         runFile(argv[1]);
     } else {
         fprintf(stderr, "Usage: cloxx [path]\n");

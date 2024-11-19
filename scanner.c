@@ -12,6 +12,24 @@ typedef struct {
 
 Scanner scanner;
 
+static bool isAtEnd() {
+    return *scanner.current == '\0';
+}
+
+static char peek() {
+    return *scanner.current;
+}
+
+static char peekNext() {
+    if (isAtEnd()) return '\0';
+    return scanner.current[1];
+}
+
+static char advance() {
+    scanner.current++;
+    return scanner.current[-1];
+}
+
 void initScanner(const char* source) {
     scanner.start = source;
     scanner.current = source;
@@ -25,11 +43,7 @@ static bool isAlpha(char c) {
 }
 
 static bool isDigit(char c) {
-    return c >= '0' && <= '9';
-}
-
-static bool isAtEnd() {
-    return *scanner.current == '\0';
+    return c >= '0' && c <= '9';
 }
 
 static Token makeToken(TokenType type) {
@@ -123,7 +137,7 @@ static TokenType identifierType() {
 
 static Token identifier() {
     while (isAlpha(peek()) || isDigit(peek())) advance();
-    return makeToken(indentifierType());
+    return makeToken(identifierType());
 }
 
 static Token number() {
@@ -142,25 +156,11 @@ static Token string() {
         advance();
     }
 
-    if (isAtEnd()) return errorToken("Unterminated string.")
+    if (isAtEnd()) return errorToken("Unterminated string.");
 
     // eat the closing '"'
-    advance()
+    advance();
     return makeToken(TOKEN_STRING);
-}
-
-static char advance() {
-    scanner.current++;
-    return scanner.current[-1];
-}
-
-static char peek() {
-    return *scanner.current;
-}
-
-static char peekNext() {
-    if (isAtEnd()) return '\0';
-    return scanner.current[1];
 }
 
 static bool match(char expected) {
@@ -177,7 +177,7 @@ Token scanToken() {
     if(isAtEnd()) return makeToken(TOKEN_EOF);
 
     char c = advance();
-    if (isAlpha(c)) return indentifier();
+    if (isAlpha(c)) return identifier();
     if (isDigit(c)) return number();
 
     switch (c) {
