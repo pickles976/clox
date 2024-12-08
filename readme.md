@@ -9,8 +9,7 @@ gcc -o clox.exe main.c chunk.c memory.c debug.c value.c vm.c compiler.c scanner.
 - [x] 14 - Chunks of Bytecode
 - [x] 15 - A Virtual Machine
 - [x] 16 - Scanning on Demand
-- [ ] 17 - Compiling Expressions
-https://craftinginterpreters.com/compiling-expressions.html#parsing-tokens
+- [x] 17 - Compiling Expressions
 - [ ] 18 - Types of Values
 - [ ] 19 - Strings
 - [ ] 20 - Hash Tables
